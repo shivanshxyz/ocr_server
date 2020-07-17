@@ -8,14 +8,16 @@ app.post('/', function(req, res) {
     var lang = req.param('lang');
 
     res.send(ocr);
+
+    Tesseract.recognize(
+        `url(${image})`,
+        `${lang}`,
+      { logger: m => console.log(m) }
+    ).then(({ data: { text } }) => {
+      var ocr = text;
+      console.log(text);
+    })
+    
   });
 
 
-Tesseract.recognize(
-    `url(${image})`,
-    `${lang}`,
-  { logger: m => console.log(m) }
-).then(({ data: { text } }) => {
-  var ocr = text;
-  console.log(text);
-})
