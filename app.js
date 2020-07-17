@@ -12,10 +12,10 @@ const PORT =  process.env.PORT || 3000  ;
 app.post('/', function(req, res) {
     var image = req.body.image;
     var lang = req.body.lang;
-
+    var realFile = Buffer.from(image,"base64");
 
     Tesseract.recognize(
-        `url(${image})`,
+        realFile,
         `${lang}`,
       { logger: m => console.log(m) }
     ).then(({ data: { text } }) => {
