@@ -3,6 +3,9 @@ const app = express();
 const fs = require("fs");
 const Tesseract = require('tesseract.js');
 
+
+const PORT = 3000  ;
+
 app.post('/', function(req, res) {
     var image = req.body.image;
     var lang = req.body.lang;
@@ -21,5 +24,9 @@ app.post('/', function(req, res) {
 
     
   });
+
+  app.get('/', function (req, res) {
+    res.send(`running at port ${PORT}`)
+  })
 
 
