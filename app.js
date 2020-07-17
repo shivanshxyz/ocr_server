@@ -4,7 +4,7 @@ const fs = require("fs");
 const Tesseract = require('tesseract.js');
 
 
-const PORT = 3000  ;
+const PORT = 3000 || process.env.PORT  ;
 
 app.post('/', function(req, res) {
     var image = req.body.image;
