@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
 const fs = require("fs");
+const bodyParser = require('body-parser');
 const Tesseract = require('tesseract.js');
 
-
+app.use(bodyParser.urlencoded({ extended: true }))
+ 
 const PORT =  process.env.PORT || 3000  ;
 
 app.post('/', function(req, res) {
@@ -29,6 +31,10 @@ app.post('/', function(req, res) {
     res.send(`running at port ${PORT}`)
   })
 
-  app.listen(PORT, () => console.log('hello world'))
+  var server = app.listen(process.env.PORT || 3000, function () {
+    var port = server.address().port;
+    console.log("App now running on port", port);
+  });
+  // app.listen(PORT, () => console.log('hello world'))
 
 
