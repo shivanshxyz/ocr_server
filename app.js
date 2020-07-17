@@ -4,8 +4,8 @@ const fs = require("fs");
 const Tesseract = require('tesseract.js');
 
 app.post('/', function(req, res) {
-    var image = req.param('image');
-    var lang = req.param('lang');
+    var image = req.body.image;
+    var lang = req.body.lang;
 
 
     Tesseract.recognize(
