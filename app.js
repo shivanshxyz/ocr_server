@@ -29,5 +29,5 @@ app.post('/', function(req, res) {
     res.send(`running at port ${PORT}`)
   })
 
-  app.listen(PORT)
+  app.listen(PORT, console.log('hello world'))
 
