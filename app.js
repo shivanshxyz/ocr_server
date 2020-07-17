@@ -7,7 +7,6 @@ app.post('/', function(req, res) {
     var image = req.param('image');
     var lang = req.param('lang');
 
-    res.send(ocr);
 
     Tesseract.recognize(
         `url(${image})`,
@@ -17,6 +16,9 @@ app.post('/', function(req, res) {
       var ocr = text;
       console.log(text);
     })
+
+    res.send(ocr);
+
     
   });
 
