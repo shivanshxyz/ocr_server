@@ -21,9 +21,8 @@ app.post('/', function(req, res) {
     ).then(({ data: { text } }) => {
       var ocr = text;
       console.log(text);
+      res.send(ocr);
     })
-
-    res.send(ocr);
 
     
   });
