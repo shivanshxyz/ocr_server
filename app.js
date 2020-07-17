@@ -16,6 +16,6 @@ Tesseract.recognize(
     `${lang}`,
   { logger: m => console.log(m) }
 ).then(({ data: { text } }) => {
-  const ocr = text;
+  var ocr = text;
   console.log(text);
 })
